@@ -240,7 +240,7 @@ body.case-open{overflow:hidden}.case-view{position:fixed;inset:0;width:100vw;hei
 .motion-strip{margin-top:0}
 .recognition-break span{display:flex;min-height:180px;flex-direction:column;align-items:center;justify-content:center;padding:22px;text-align:center}
 .recognition-break span::before{margin-bottom:28px}
-.interestingness-break{padding:9vw 2vw;background:#000;color:#f2f0eb;border-top:1px solid #2b2b2b}
+.interestingness-break{padding:9vw 2vw;background:#000;color:#f2f0eb}
 .interestingness-break p{max-width:1400px;margin:0;font-size:clamp(58px,9.7vw,156px);font-weight:900;line-height:.78;letter-spacing:-.075em}
 .interestingness-break span{color:var(--signal)}
 .campaign-case-gallery video{display:block;width:100%;height:auto;max-height:78vh;object-fit:contain;background:#000}
@@ -593,3 +593,9 @@ footer>h2{line-height:.78}
 
 /* "INTERESTINGNESS" is long enough that 11.8vw overflowed the line on narrow phones (iPhone widths included), wrapping a lone trailing letter. Shrink it just enough to fit on one line. */
 @media(max-width:700px){.interestingness-break p{font-size:10.5vw!important}}
+
+/* Remove the hard section seam and let the video dissolve into the (already black) sections above/below instead of sitting in a bordered box. Lighter wash = more visible video; top/bottom fade = the "flowing" look. */
+.interestingness-break::after{background:linear-gradient(90deg,rgba(0,0,0,.55),rgba(0,0,0,.22)),linear-gradient(180deg,#000 0%,transparent 16%,transparent 84%,#000 100%)!important}
+
+/* Every "↗" was a plain Unicode character, which iOS renders as a colored emoji once it falls back past the web font (DM Sans/Inter have no glyph for it, so the fallback chain lands on Apple Color Emoji — a color-only font that VS15 can't override). Replaced with an inline SVG everywhere so it's always a clean line, on every platform. */
+.arr-ic{width:.62em;height:.62em;vertical-align:.03em;margin-left:.05em;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
