@@ -124,7 +124,7 @@ const campaignCases = [
 ];
 
 function openCampaign(campaign) {
-  const links=campaign.links.map(([label,url])=>`<a href="${url}" target="_blank" rel="noreferrer">${label} ↗</a>`).join('');
+  const links=campaign.links.map(([label,url])=>`<a href="${url}" target="_blank" rel="noreferrer">${label} ↗︎</a>`).join('');
   const film=campaign.film ? `<div class="campaign-film"><iframe src="${campaign.film}" title="${campaign.title} campaign film" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>` : '';
   const images=campaign.images.map(src=>`<figure><img loading="lazy" src="${src}" alt="${campaign.title} campaign asset"></figure>`).join('');
   const videos=(campaign.videos||[]).map(src=>`<figure><video muted loop autoplay playsinline preload="metadata" src="${src}" aria-label="${campaign.title} campaign film"></video></figure>`).join('');
@@ -153,7 +153,7 @@ function openProject(project) {
   const next = projects[(index + 1) % projects.length];
   const films = project.videos ? `<div class="film-pair">${project.videos.map(src => `<video muted loop autoplay playsinline src="${src}"></video>`).join('')}</div>` : '';
   const caseFilm = project.film ? `<div class="campaign-film project-film"><iframe src="${project.film}" title="${project.name} campaign film" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>` : '';
-  const sourceLinks = project.links ? `<nav class="campaign-case-links project-links" aria-label="Project links">${project.links.map(([label,url])=>`<a href="${url}" target="_blank" rel="noreferrer">${label} ↗</a>`).join('')}</nav>` : '';
+  const sourceLinks = project.links ? `<nav class="campaign-case-links project-links" aria-label="Project links">${project.links.map(([label,url])=>`<a href="${url}" target="_blank" rel="noreferrer">${label} ↗︎</a>`).join('')}</nav>` : '';
   const coverVideo = project.previewVideo || (project.id === 'gin-soak' ? project.videos?.[0] : '');
   const heroMedia = coverVideo ? `<video class="case-hero-media" muted loop autoplay playsinline src="${coverVideo}"></video>` : `<img class="case-hero-media" src="${project.preview}" alt="${project.name} key visual">`;
   caseContent.innerHTML = `<article class="case-article"><header class="case-cover">${heroMedia}</header><section class="case-heading"><div class="case-heading-meta"><span>${String(index+1).padStart(2,'0')} / ${String(projects.length).padStart(2,'0')}</span><span>${project.type}</span></div><h2>${project.name}</h2><h3>${project.idea}</h3><div class="case-accordions"><details open><summary>PROJECT STORY <span>+</span></summary><div><p><b>THE BRIEF</b>${project.brief}</p><p><b>THE RESPONSE</b>${project.response}</p></div></details><details open><summary>MY CONTRIBUTION <span>+</span></summary><div class="project-contribution"><p>${project.contribution}</p></div></details></div>${sourceLinks}</section>${caseFilm}${films}<div class="masonry">${mediaMarkup(project)}</div><button class="next-case" type="button"><span>NEXT PROJECT</span><strong>${next.name} →</strong></button></article>`;

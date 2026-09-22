@@ -590,3 +590,6 @@ footer>h2{line-height:.78}
 
 /* The "INTERESTINGNESS" shimmer/glow was mobile-only; desktop fell back to a flat color. Apply the same animated treatment everywhere. */
 .interestingness-break span{display:inline-block;color:transparent;background:linear-gradient(90deg,var(--signal),#fff,var(--signal));background-size:220% 100%;background-clip:text;-webkit-background-clip:text;animation:interestingWord 3.8s ease-in-out infinite}
+
+/* "INTERESTINGNESS" is long enough that 11.8vw overflowed the line on narrow phones (iPhone widths included), wrapping a lone trailing letter. Shrink it just enough to fit on one line. */
+@media(max-width:700px){.interestingness-break p{font-size:10.5vw!important}}
