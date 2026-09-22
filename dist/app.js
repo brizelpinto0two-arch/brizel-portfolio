@@ -109,6 +109,17 @@ const campaignCases = [
     result:'The system gave individual business stories their own character while keeping the campaign recognisable across every execution.',
     images:['assets/meta/meta-jaysart-01.jpg','assets/meta/meta-jaysart-02.jpg','assets/meta/meta-priyassarees-clean.png','assets/meta/meta-zoyapaints-clean.png'],
     links:[]
+  },
+  {
+    id:'duolingo-vaathi', index:'10', brand:'Duolingo', year:'2025', title:'English Vaathi Coming',
+    discipline:'Social-first launch campaign · Regional identity', role:'Design · Social Content · Look & Feel',
+    hero:'assets/campaigns/duolingo-vaathi/hero.jpg',
+    brief:'Launch Duolingo’s fourth Indic course, “Learn English from Tamil,” for a Tamil Nadu audience in a way that felt native to the region rather than a translated import.',
+    idea:'“English Vaathi Coming” reimagined Duo as a Kollywood-style mass entry, channelling the swagger, kuthu beats and fan-theatrics of Tamil cinema into a moniker-led social launch.',
+    contribution:'Worked on the designs and social content, shaping the look and feel of the campaign across social media.',
+    result:'The launch found its way into Tamil Nadu’s own pop-culture conversation online, introducing Duolingo’s fourth Indic language course on the region’s own cinematic terms.',
+    images:['assets/campaigns/duolingo-vaathi/hero.jpg'],
+    links:[['CAMPAIGN COVERAGE','https://campaignbriefasia.com/2025/01/14/talented-india-infuses-tamil-pop-culture-into-duolingos-learn-english-from-tamil-campaign/'],['WATCH FILM','https://www.instagram.com/p/DEohYRSShYV/']]
   }
 ];
 
