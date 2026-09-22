@@ -569,3 +569,21 @@ footer>h2{line-height:.78}
   .footer-talk{padding:7px 10px!important;border-radius:18px!important;font-size:13px!important;gap:14px!important}
   .footer-talk b{font-size:12px!important}
 }
+
+/* Desktop footer headline was only capped for mobile widths, so it could overflow past the footer's clipped edge on wide screens. */
+@media(min-width:701px){footer h2{font-size:clamp(48px,6.2vw,118px)!important;line-height:.86!important}}
+
+/* Cinematic orange grade for the footer image, matching the hero film-layer treatment. The old grayscale filter lived on the wrapping .footer-motion div, which recompositess over any filter on the img inside it, so it has to be cleared too. */
+.footer-motion{filter:none!important;position:absolute!important}
+.footer-motion img{filter:sepia(.5) saturate(1.7) hue-rotate(345deg) contrast(1.2) brightness(.72)!important;opacity:.8!important}
+.footer-motion::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,#000 0%,rgba(0,0,0,.55) 8%,rgba(0,0,0,0) 26%)}
+
+/* Mobile horizontal-scroll carousels (Selected Work, Areas of Obsession) get prev/next arrows so it reads as swipeable instead of a dead end. Hidden on desktop, where the grid isn't scrollable. */
+.carousel-nav{display:none}
+@media(max-width:700px){
+  .carousel-shell{position:relative;isolation:isolate;z-index:0}
+  .carousel-nav{display:flex;align-items:center;justify-content:center;position:absolute;top:50%;transform:translate3d(0,-50%,0);isolation:isolate;z-index:50;width:36px;height:36px;border-radius:50%;border:1px solid rgba(255,255,255,.55);background:rgba(0,0,0,.55);color:#fff;font-size:20px;line-height:1;padding:0 0 2px;cursor:pointer;backdrop-filter:blur(3px);transition:opacity .2s}
+  .carousel-nav.prev{left:2px}
+  .carousel-nav.next{right:2px}
+  .carousel-nav[disabled]{opacity:.3;pointer-events:none}
+}
