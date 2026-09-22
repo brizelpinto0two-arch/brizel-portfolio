@@ -587,3 +587,6 @@ footer>h2{line-height:.78}
   .carousel-nav.next{right:2px}
   .carousel-nav[disabled]{opacity:.3;pointer-events:none}
 }
+
+/* The "INTERESTINGNESS" shimmer/glow was mobile-only; desktop fell back to a flat color. Apply the same animated treatment everywhere. */
+.interestingness-break span{display:inline-block;color:transparent;background:linear-gradient(90deg,var(--signal),#fff,var(--signal));background-size:220% 100%;background-clip:text;-webkit-background-clip:text;animation:interestingWord 3.8s ease-in-out infinite}
